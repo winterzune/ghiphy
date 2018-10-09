@@ -19,8 +19,8 @@ $.ajax({
 
 // buttons
 function createButtons () {
-    var gifArray = ["kitty", "hello", "k"];
     $("#gif-post").empty();
+    var gifArray = ["kitty", "hello", "k"];
     for (var i = 0; i < gifArray.length; i++ ) {
     var a = $("<button>");
         a.addClass("giftastic");
@@ -41,3 +41,22 @@ createButtons();
 });
 
 createButtons();
+
+//to make the gif appear when button is clicked
+//$(button).on("click", function) {}
+
+
+
+
+//animating gifs
+$("#gif").on("click", function() {
+    var state = $(this).attr("data-state");
+    if (state === "still") {
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", animate);
+    } else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+    }
+    
+});
